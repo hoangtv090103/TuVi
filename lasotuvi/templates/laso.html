@@ -4,23 +4,45 @@
     <meta charset="UTF-8">
     <title>Lấy lá số</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/thienban.css' %}">
+    <link rel="stylesheet" href="{% static 'css/laso.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div class="la-so-grid-container">
-        <div class="dia-ban" id="snake" name="snake">6</div>
-        <div class="dia-ban" id="horse" name="horse">7</div>
-        <div class="dia-ban" id="goat" name="goat">8</div>
-        <div class="dia-ban" id="monkey" name="monkey">9</div>
-        <div class="dia-ban" id="dragon" name="dragon">5</div>
-        <div class="thien-ban"></div>
-        <div class="dia-ban" id="chicken" name="chicken">10</div>
-        <div class="dia-ban" id="cat" name="cat">4</div>
-        <div class="dia-ban" id="dog" name="dog">11</div>
-        <div class="dia-ban" id="tiger" name="tiger">3</div>
-        <div class="dia-ban" id="ox" name="ox">2</div>
-        <div class="dia-ban" id="mouse" name="mouse">1</div>
-        <div class="dia-ban" id="pig" name="pig">12</div>
+<div class="la-so-grid-container">
+    <div class="dia-ban" id="snake" name="snake">6</div>
+    <div class="dia-ban" id="horse" name="horse">7</div>
+    <div class="dia-ban" id="goat" name="goat">8</div>
+    <div class="dia-ban" id="monkey" name="monkey">9</div>
+    <div class="dia-ban" id="dragon" name="dragon">5</div>
+    <div class="thien-ban">
+        <div id="ho_ten" name="ho_ten">
+            <label for="ho_ten">Họ Tên</label>
+            {{ ho_ten }}
+        </div>
+        <div id="nam_sinh" name="nam_sinh">
+            <label for="ngay_sinh">Năm Sinh: </label>
+            {{ nam_sinh }} ({{ nam_am }})
+        </div>
+
+        <div id="thang_sinh" name="thang_sinh">
+            <label for="thang_sinh">Tháng Sinh: </label>
+            {{ thang_sinh }} ({{ thang_am }})
+        </div>
+
+        <div id="" name="ngay_sinh">
+            <label for="ngay_sinh">Ngày Sinh: </label>
+            {{ ngay_sinh }} ({{ ngay_am }})
+        </div>
+
+
     </div>
+    <div class="dia-ban" id="chicken" name="chicken">10</div>
+    <div class="dia-ban" id="cat" name="cat">4</div>
+    <div class="dia-ban" id="dog" name="dog">11</div>
+    <div class="dia-ban" id="tiger" name="tiger">3</div>
+    <div class="dia-ban" id="ox" name="ox">2</div>
+    <div class="dia-ban" id="mouse" name="mouse">1</div>
+    <div class="dia-ban" id="pig" name="pig">12</div>
+</div>
 </body>
 </html>

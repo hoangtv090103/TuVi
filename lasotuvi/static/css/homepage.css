@@ -1,18 +1,22 @@
-.homepage-form-container
-{
+.homepage-form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.homepage-form-container input
-{
+.homepage-form-container input {
     width: 50%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .homepage-form-content-item {
     display: flex;
+}
+
+.homepage-form-content-item select{
+    width: 50%;
+}
+
+.homepage-form-content-item label {
+    width: 100px;
 }

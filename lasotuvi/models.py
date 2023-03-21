@@ -57,5 +57,15 @@ class LaSoTuVi(models.Model):
         nam_thien_can = THIEN_CAN[nam_am % 10]
         nam_dia_chi = DIA_CHI[nam_am % 12]
         return {
+            'ho_ten': user_info.get('ho_ten'),
+            'nam_sinh': user_info.get('nam_sinh'),
+            'nam_am': nam_thien_can + ' ' + nam_dia_chi,
+            'thang_sinh': user_info.get('thang_sinh'),
+            'thang_am': thang_am,
+            'ngay_sinh': user_info.get('ngay_sinh'),
+            'ngay_am': ngay_am,
+            'gio_sinh': user_info.get('gio_sinh'),
+            'gender': "Nam" if user_info['gender'] else "Nữ",
             'nam_thien_can': nam_thien_can,
-            'nam_dia_chi': nam_dia_chi}
+            'nam_dia_chi': nam_dia_chi
+        }

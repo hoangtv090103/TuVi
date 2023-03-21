@@ -29,9 +29,7 @@ def homepage(request):
                                             user_info['ngay_sinh'], user_info['gio_sinh'])
         user_info.update({'am_lich': date(lunar_calendar.year, lunar_calendar.month, lunar_calendar.day)})
         LaSoTuVi.insert_la_so_data(user_info)
-        # request.session.update({'user_info': user_info})
-        return redirect('/lasotuvi/')
-
+        return redirect('lasotuvi/')
     else:
         context = {
             'year_range': [i for i in range(1900, date.today().year + 1)],
@@ -57,6 +55,18 @@ def homepage(request):
 
 
 def laso(request):
-    # user_info = request.session.get('user_info')
+    lasotuvi = LaSoTuVi.objects.last()
+    user_info = {
+        'ho_ten': lasotuvi.ho_ten,
+        'nam_sinh': lasotuvi.nam_sinh,
+        'thang_sinh': lasotuvi.thang_sinh,
+        'ngay_sinh': lasotuvi.ngay_sinh,
+        'gio_sinh': lasotuvi.gio_sinh,
+        'gender': lasotuvi.gender,
+        'am_lich': lasotuvi.am_lich,
+        'gioi_tinh': lasotuvi.gender,
+        'nam_xem_han': lasotuvi.nam_xem_han,
+    }
+    context = LaSoTuVi.generate_thien_ban(user_info)
     template_name = loader.get_template('laso.html')
-    return HttpResponse(template_name.render({}, request))
+    return HttpResponse(template_name.render(context, request))
