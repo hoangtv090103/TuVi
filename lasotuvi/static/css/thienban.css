@@ -1,0 +1,21 @@
+.la-so-grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.thien-ban
+{
+
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+.dia-ban {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    border: black;
+    background-color: #f1f1f1;
+}

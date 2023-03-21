@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <script src="{% static 'js/homepage.js' %}"></script>
+</head>
+<body>
+<form action="/" method="post" class="homepage-form-container">
+    {% csrf_token %}
+    {#        Make input for these field: 'ho_ten', 'nam_sinh', 'thang_sinh', 'ngay_sinh', 'gio_sinh', 'gioi_tinh', 'nam_xem_han'#}
+    <div class="homepage-form">
+        <div class="homepage-form-title">
+            <h1>Phần mềm xem hạn</h1>
+        </div>
+        <div class="homepage-form-content">
+            <div class="homepage-form-content-item">
+                <label for="ho_ten">Họ tên</label>
+                <input type="text" name="ho_ten" id="ho_ten">
+            </div>
+            <div class="homepage-form-content-item">
+                <label for="nam_sinh">Năm sinh</label>
+                <select name="nam_sinh" id="nam_sinh">
+                    {% for i in year_range %}
+                        {% if i == year_range|last %}
+                            <option selected value="{{ i }}">{{ i }}</option>
+                        {% else %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="homepage-form-content-item">
+                <label for="thang_sinh">Tháng sinh</label>
+                <select name="thang_sinh" id="thang_sinh" oninput="updateDayRange()">
+                    {% for i in month_range %}
+                        {% if i == month_range|first %}
+                            <option selected value="{{ i }}">{{ i }}</option>
+                        {% else %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="homepage-form-content-item">
+                <label for="ngay_sinh">Ngày sinh</label>
+                <select name="ngay_sinh" id="ngay_sinh">
+                    {% for i in end_of_january %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="homepage-form-content-item">
+                <label for="gio_sinh">Giờ sinh</label>
+                <select name="gio_sinh" id="gio_sinh">
+                    {% for key, value in born_hour_range.items %}
+                        <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="homepage-form-content-item">
+                <label for="gioi_tinh">Giới tính</label>
+                <select name="gioi_tinh" id="gioi_tinh">
+                    <option value="1">Nam</option>
+                    <option value="0">Nữ</option>
+                </select>
+            </div>
+            <div class="homepage-form-content-item">
+                <label for="nam_xem_han">Năm xem hạn</label>
+                <select name="nam_xem_han" id="nam_xem_han">
+                    {% for i in year_range %}
+                        {% if i == year_range|last %}
+                            <option selected value="{{ i }}">{{ i }}</option>
+                        {% else %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="homepage-form-submit">
+            <input type="submit" value="Xem hạn">
+        </div>
+    </div>
+</form>
+</body>
+</html>
